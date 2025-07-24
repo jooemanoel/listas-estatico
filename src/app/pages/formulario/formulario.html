@@ -1,0 +1,24 @@
+<app-cabecalho
+  titulo="Criar lista"
+  (btnClick)="homeClick()"
+  (menuClick)="pageChange.emit(4)"
+></app-cabecalho>
+<div class="container pt-3">
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field class="w-100">
+        <mat-label>Nome da lista</mat-label>
+        <input matInput type="text" [(ngModel)]="value" />
+      </mat-form-field>
+      <button
+        class="w-100"
+        mat-raised-button
+        color="primary"
+        (click)="adicionar()"
+        [disabled]="!value"
+      >
+        Adicionar
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

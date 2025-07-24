@@ -1,0 +1,25 @@
+<mat-toolbar class="container-fluid p-0">
+  <div class="flex-fill d-flex ps-2 align-items-center">
+    <div>
+      @if(titulo !== 'Login' && titulo !== 'Cadastro') {
+      <button mat-mini-fab (click)="evento()">
+        @if(titulo === 'Minhas listas') {
+        <mat-icon>add</mat-icon>
+        } @else {
+        <mat-icon>home</mat-icon>
+        }
+      </button>
+      }
+    </div>
+    <div class="flex-fill text-center">
+      {{ titulo }}
+    </div>
+    <div class="pe-2">
+      @if(titulo !== 'Login' && titulo !== 'Cadastro') {
+      <button mat-icon-button (click)="menu()">
+        <mat-icon>close</mat-icon>
+      </button>
+      }
+    </div>
+  </div>
+</mat-toolbar>

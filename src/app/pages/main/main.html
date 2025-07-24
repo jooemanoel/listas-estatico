@@ -1,0 +1,12 @@
+@if(page == 1){
+<app-tabela (pageChange)="mudarPagina($event)"></app-tabela>
+}
+@if(page == 2){
+<app-lista (pageChange)="mudarPagina($event)"></app-lista>
+}
+@if(page == 3){
+<app-formulario (pageChange)="mudarPagina($event)"></app-formulario>
+}
+@if(page == 4){
+<app-login (pageChange)="mudarPagina($event)"></app-login>
+}
