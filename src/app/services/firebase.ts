@@ -125,7 +125,7 @@ this.notificarBackEnd('Atualização realizada', `Item da coleção "${colecao}"
 
   private notificarBackEnd(titulo: string, corpo: string) {
     this.http
-      .post('https://treino-express-psi.vercel.app/notificar', {
+      .post('https://treino-express-psi.vercel.app/notificacoes/notificar', {
         title: titulo,
         body: corpo,
       })

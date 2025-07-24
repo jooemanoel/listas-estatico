@@ -35,7 +35,7 @@ export class PushService {
       if (subscription) {
         this.http
           .post(
-            'https://treino-express-psi.vercel.app/subscrever',
+            'https://treino-express-psi.vercel.app/notificacoes/subscrever',
             subscription.toJSON(),
             {
               headers: { 'Content-Type': 'application/json' },
