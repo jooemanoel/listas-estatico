@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1753393260503,
+  "timestamp": 1753397929981,
   "index": "/listas-estatico/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/listas-estatico/favicon.ico",
         "/listas-estatico/index.html",
-        "/listas-estatico/main-CXOOOYEF.js",
+        "/listas-estatico/main-YHDGEWQH.js",
         "/listas-estatico/manifest.webmanifest",
         "/listas-estatico/polyfills-B6TNHZQ6.js",
         "/listas-estatico/scripts-WL2QHKC5.js",
@@ -52,8 +52,8 @@
     "/listas-estatico/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "/listas-estatico/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "/listas-estatico/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/listas-estatico/index.html": "33e4850c0a8b6483b90dabf9c7192050b82aa4d5",
-    "/listas-estatico/main-CXOOOYEF.js": "9d969a44e76876d155af2a0352d24a55601de34a",
+    "/listas-estatico/index.html": "60ea08693e76dd5c063938979bdab3c5774c2cf0",
+    "/listas-estatico/main-YHDGEWQH.js": "c305496f9fe2c780930e2494b9d7045eecc30388",
     "/listas-estatico/manifest.webmanifest": "909ff986a219329f7b8b66926a7ba3d5b1762a08",
     "/listas-estatico/polyfills-B6TNHZQ6.js": "bf76ac291d7f51c1139b7edcf86b359a30c08c64",
     "/listas-estatico/scripts-WL2QHKC5.js": "c1b0b7dbf9c9fb61cc4dc027d25f48b5a7b113ad",

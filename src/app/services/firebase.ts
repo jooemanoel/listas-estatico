@@ -1,3 +1,5 @@
+//firebase.ts
+
 import { Injectable } from '@angular/core';
 
 import { initializeApp } from 'firebase/app';
@@ -13,6 +15,7 @@ import {
 import { ListaFire } from '../shared/models/interfaces/ListaFire';
 import { Registro } from '../shared/models/interfaces/registro';
 import { Usuario } from '../shared/models/interfaces/usuario';
+import { HttpClient } from '@angular/common/http';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB6D-EiO-Bi6wb7fePa-FLnIE3NqY62BjM',
@@ -33,10 +36,10 @@ export class Firebase {
   usuarios: Registro<Usuario>[] = [];
   usuarioAtual!: Registro<Usuario>;
   listaAtual!: Registro<ListaFire>;
+  constructor(private http: HttpClient) {}
   async listar<T>(colecao: string): Promise<Registro<T>[]> {
     const colecaoRef = collection(db, colecao);
     const snapshot = await getDocs(colecaoRef);
-
     return snapshot.docs.map((doc) => ({
       id: doc.id,
       data: doc.data() as T,
@@ -51,6 +54,7 @@ export class Firebase {
       console.log('Documento adicionado com ID:', docRef.id);
 
       this.mostrarNotificacao('Novo item adicionado', `Coleção: ${colecao}`);
+      this.notificarBackEnd('Novo item adicionado', `Coleção: ${colecao}`);
 
       return docRef.id;
     } catch (error) {
@@ -86,6 +90,9 @@ export class Firebase {
         'Atualização realizada',
         `Item da coleção "${colecao}" foi atualizado.`
       );
+this.notificarBackEnd('Atualização realizada', `Item da coleção "${colecao}" foi atualizado.`);
+
+
     } catch (error) {
       console.error('Erro ao atualizar usuário:', error);
     }
@@ -114,5 +121,17 @@ export class Firebase {
         }
       });
     }
+  }
+
+  private notificarBackEnd(titulo: string, corpo: string) {
+    this.http
+      .post('https://treino-express-psi.vercel.app/notificar', {
+        title: titulo,
+        body: corpo,
+      })
+      .subscribe({
+        next: () => console.log('Notificação enviada ao servidor'),
+        error: (err) => console.error('Erro ao notificar backend:', err),
+      });
   }
 }
