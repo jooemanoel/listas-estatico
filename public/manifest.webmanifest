@@ -1,6 +1,6 @@
 {
-  "name": "listas-estatico",
-  "short_name": "listas-estatico",
+  "name": "Listas",
+  "short_name": "Listas",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

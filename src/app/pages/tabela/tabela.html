@@ -1,5 +1,5 @@
 <app-cabecalho
-  titulo="Minhas listas"
+  [titulo]="usuario.data.nome"
   (btnClick)="criarLista()"
   (menuClick)="pageChange.emit(4)"
 ></app-cabecalho>

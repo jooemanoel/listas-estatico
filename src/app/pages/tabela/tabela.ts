@@ -43,7 +43,7 @@ export class Tabela {
     );
     this.dataSource.data = listas;
     this.titulo = this.dataSource.data.length
-      ? 'LISTAS ATUAIS'
+      ? 'MINHAS LISTAS'
       : 'NÃO HÁ NENHUMA LISTA';
   }
   criarLista() {

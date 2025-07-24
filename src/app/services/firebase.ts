@@ -27,7 +27,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class Firebase {
   usuarios: Registro<Usuario>[] = [];
@@ -44,12 +44,15 @@ export class Firebase {
   }
   async adicionar<T extends Record<string, unknown>>(
     colecao: string,
-    dado: T,
+    dado: T
   ): Promise<string> {
     try {
       const docRef = await addDoc(collection(db, colecao), dado);
       console.log('Documento adicionado com ID:', docRef.id);
-      return docRef.id; // Agora retorna o ID do documento criado!
+
+      this.mostrarNotificacao('Novo item adicionado', `Coleção: ${colecao}`);
+
+      return docRef.id;
     } catch (error) {
       console.error('Erro ao adicionar documento:', error);
       return '';
@@ -59,12 +62,12 @@ export class Firebase {
     try {
       await deleteDoc(doc(db, colecao, id));
       console.log(
-        `Documento com ID ${id} excluído com sucesso da coleção ${colecao}.`,
+        `Documento com ID ${id} excluído com sucesso da coleção ${colecao}.`
       );
     } catch (error) {
       console.error(
         `Erro ao excluir documento ${id} da coleção ${colecao}:`,
-        error,
+        error
       );
       throw error;
     }
@@ -72,12 +75,17 @@ export class Firebase {
   async atualizar<T>(
     colecao: string,
     id: string,
-    novosDados: Partial<T>,
+    novosDados: Partial<T>
   ): Promise<void> {
     try {
       const usuarioRef = doc(db, colecao, id);
       await updateDoc(usuarioRef, novosDados);
       console.log(`Usuário com ID ${id} atualizado com sucesso.`);
+
+      this.mostrarNotificacao(
+        'Atualização realizada',
+        `Item da coleção "${colecao}" foi atualizado.`
+      );
     } catch (error) {
       console.error('Erro ao atualizar usuário:', error);
     }
@@ -87,5 +95,24 @@ export class Firebase {
     if (!search) return undefined;
     if (search.data.senha !== input.senha) return null;
     return search;
+  }
+
+  private mostrarNotificacao(titulo: string, corpo: string) {
+    if (!document.hidden) {
+      return;
+    }
+    if (!('Notification' in window)) {
+      console.warn('Este navegador não suporta notificações.');
+      return;
+    }
+    if (Notification.permission === 'granted') {
+      new Notification(titulo, { body: corpo });
+    } else if (Notification.permission !== 'denied') {
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          new Notification(titulo, { body: corpo });
+        }
+      });
+    }
   }
 }
