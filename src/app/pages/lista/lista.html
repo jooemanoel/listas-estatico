@@ -45,4 +45,16 @@
     <tr mat-header-row *matHeaderRowDef="colunas"></tr>
     <tr mat-row *matRowDef="let row; columns: colunas"></tr>
   </table>
+  @if (!dataSource.data.length) {
+    <mat-card class="mt-4" style="text-align: center;">
+      <mat-card-content>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <mat-icon color="primary" style="font-size: 40px; height: 40px; width: 40px; line-height: 40px;">info</mat-icon>
+          <p style="margin-top: 8px;">
+            Para adicionar um item à lista, digite o nome no campo acima e clique no botão <strong>+</strong> que aparecerá à direita.
+          </p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  }
 </div>

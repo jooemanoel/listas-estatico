@@ -8,6 +8,7 @@ import { Firebase } from '../../services/firebase';
 import { ListaFire } from '../../shared/models/interfaces/ListaFire';
 import { Registro } from '../../shared/models/interfaces/registro';
 import { Usuario } from '../../shared/models/interfaces/usuario';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   standalone: true,
@@ -18,6 +19,7 @@ import { Usuario } from '../../shared/models/interfaces/usuario';
     MatSortModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule
   ],
   templateUrl: './tabela.html',
   styleUrl: './tabela.css',

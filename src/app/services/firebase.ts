@@ -90,9 +90,10 @@ export class Firebase {
         'Atualização realizada',
         `Item da coleção "${colecao}" foi atualizado.`
       );
-this.notificarBackEnd('Atualização realizada', `Item da coleção "${colecao}" foi atualizado.`);
-
-
+      this.notificarBackEnd(
+        'Atualização realizada',
+        `Item da coleção "${colecao}" foi atualizado.`
+      );
     } catch (error) {
       console.error('Erro ao atualizar usuário:', error);
     }
@@ -125,10 +126,16 @@ this.notificarBackEnd('Atualização realizada', `Item da coleção "${colecao}"
 
   private notificarBackEnd(titulo: string, corpo: string) {
     this.http
-      .post('https://treino-express-psi.vercel.app/notificacoes/notificar', {
-        title: titulo,
-        body: corpo,
-      })
+      .post(
+        'https://treino-express-psi.vercel.app/notificacoes/notificar',
+        {
+          title: titulo,
+          body: corpo,
+        },
+        {
+          headers: { 'Content-Type': 'application/json' },
+        }
+      )
       .subscribe({
         next: () => console.log('Notificação enviada ao servidor'),
         error: (err) => console.error('Erro ao notificar backend:', err),

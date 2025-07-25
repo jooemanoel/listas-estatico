@@ -35,8 +35,19 @@
     <tr mat-row *matRowDef="let row; columns: colunas"></tr>
   </table>
 </div>
-@if(!dataSource.data.length){
-<div class="container text-center pt-3">
-  Crie uma lista pressionando + no canto superior esquerdo.
-</div>
+@if (!dataSource.data.length) {
+  <div class="container pt-3 d-flex justify-content-center">
+    <mat-card class="w-100 text-center p-3" style="max-width: 400px; margin: auto;">
+      <mat-card-content>
+        <div class="d-flex flex-column align-items-center gap-2">
+          <button mat-fab color="primary" (click)="criarLista()">
+            <mat-icon>add</mat-icon>
+          </button>
+          <p class="mt-2 mb-0">
+            Crie uma lista pressionando <strong>+</strong> no canto superior esquerdo ou no botão acima.
+          </p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 }

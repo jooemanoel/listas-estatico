@@ -11,12 +11,14 @@ import { Firebase } from '../../services/firebase';
 import { Item } from '../../shared/models/interfaces/item';
 import { ListaFire } from '../../shared/models/interfaces/ListaFire';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   standalone: true,
   selector: 'app-lista',
   imports: [
     Cabecalho,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,

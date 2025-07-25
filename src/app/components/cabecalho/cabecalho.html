@@ -3,7 +3,7 @@
     <div>
       @if(titulo !== 'Login' && titulo !== 'Cadastro') {
       <button mat-mini-fab (click)="evento()">
-        @if(titulo === 'Minhas listas') {
+        @if(titulo === usuarioAtual.data.nome) {
         <mat-icon>add</mat-icon>
         } @else {
         <mat-icon>home</mat-icon>
