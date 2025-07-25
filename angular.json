@@ -22,11 +22,6 @@
                 "glob": "**/*",
                 "input": "public",
                 "output": "/"
-              },
-              {
-                "glob": "custom-sw.js",
-                "input": "src",
-                "output": "/"
               }
             ],
             "styles": [

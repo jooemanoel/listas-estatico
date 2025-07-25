@@ -36,12 +36,20 @@ export class Login {
   registro = false;
   colunas: string[] = ['edit', 'nome', 'delete'];
   dataSource = new MatTableDataSource<Registro<Usuario>>([]);
-  constructor(private firebase: FirebaseService, private _snackBar: MatSnackBar) {}
+  constructor(
+    private firebase: FirebaseService,
+    private _snackBar: MatSnackBar
+  ) {}
   ngOnInit(): void {
     this.carregarUsuarios();
   }
   login() {
-    this.usuario.nome = this.usuario.nome.toUpperCase();
+    this.usuario.nome = this.usuario.nome
+      .trim()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toUpperCase()
+      .replace(/[^A-Z ]/g, '');
     const user = this.firebase.buscarUsuario(this.usuario);
     if (user === undefined) {
       this._snackBar.open('Usuário não encontrado.', '', { duration: 5000 });

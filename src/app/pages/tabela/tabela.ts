@@ -5,7 +5,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Cabecalho } from '../../components/cabecalho/cabecalho';
 import { FirebaseService } from '../../services/firebase-service';
-import { ListaFire } from '../../shared/models/interfaces/ListaFire';
+import { Lista } from '../../shared/models/interfaces/Lista';
 import { Registro } from '../../shared/models/interfaces/registro';
 import { Usuario } from '../../shared/models/interfaces/usuario';
 import { MatCardModule } from '@angular/material/card';
@@ -29,7 +29,7 @@ export class Tabela {
   titulo = 'CARREGANDO...';
   usuario!: Registro<Usuario>;
   colunas: string[] = ['ver', 'nome', 'excluir'];
-  dataSource = new MatTableDataSource<Registro<ListaFire>>([]);
+  dataSource = new MatTableDataSource<Registro<Lista>>([]);
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private firebase: FirebaseService) {}
   ngOnInit() {
@@ -40,7 +40,7 @@ export class Tabela {
     this.dataSource.sort = this.sort;
   }
   async carregarListas() {
-    const listas: Registro<ListaFire>[] = await this.firebase.listar<ListaFire>(
+    const listas: Registro<Lista>[] = await this.firebase.listar<Lista>(
       this.usuario.data.nome
     );
     this.dataSource.data = listas;
@@ -51,7 +51,7 @@ export class Tabela {
   criarLista() {
     this.pageChange.emit(3);
   }
-  acessar(element: Registro<ListaFire>) {
+  acessar(element: Registro<Lista>) {
     this.firebase.listaAtual = element;
     this.pageChange.emit(2);
   }

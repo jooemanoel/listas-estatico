@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ListaFire } from '../../shared/models/interfaces/ListaFire';
+import { Lista } from '../../shared/models/interfaces/Lista';
 import { FirebaseService } from '../../services/firebase-service';
 import { Cabecalho } from '../../components/cabecalho/cabecalho';
 import {MatCardModule} from '@angular/material/card';
@@ -20,9 +20,10 @@ export class Formulario {
   value = '';
   constructor(private firebase: FirebaseService) {}
   async adicionar() {
-    if (!this.value || !this.value.trim()) return;
-    const lista: ListaFire = { nome: this.value.toUpperCase(), itens: [] };
-    await this.firebase.adicionar<ListaFire>(
+    this.value = this.value.trim().toUpperCase();
+    if (!this.value) return;
+    const lista: Lista = { nome: this.value, itens: [] };
+    await this.firebase.adicionar<Lista>(
       this.firebase.usuarioAtual.data.nome,
       lista,
     );

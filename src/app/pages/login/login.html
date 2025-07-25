@@ -10,7 +10,7 @@
         <mat-label>Usuário</mat-label>
         <input matInput type="text" [(ngModel)]="usuario.nome" />
       </mat-form-field>
-      <mat-form-field class="w-100">
+      <mat-form-field class="w-100 mt-3">
         <mat-label>Senha</mat-label>
         <input
           matInput
@@ -22,7 +22,7 @@
         </button>
       </mat-form-field>
       @if(registro) {
-      <mat-form-field class="w-100">
+      <mat-form-field class="w-100 mt-3">
         <mat-label>Confirmar senha</mat-label>
         <input
           matInput
@@ -39,30 +39,31 @@
       @if(!registro) {
       <button
         class="w-100"
-        mat-raised-button
-        color="primary"
+        matButton="filled"
         (click)="login()"
         [disabled]="!usuario.nome"
       >
         LOGIN
       </button>
-      }
+      } @if (registro) {
       <button
         class="w-100"
-        mat-raised-button
-        [color]="registro ? 'primary' : 'accent'"
+        matButton="filled"
         (click)="adicionar()"
-        [disabled]="registro && !usuario.nome"
+        [disabled]="!usuario.nome"
       >
         CADASTRAR
       </button>
-      @if(registro){
+      } @else {
       <button
         class="w-100"
-        mat-raised-button
-        color="accent"
-        (click)="registro = !registro"
+        matButton="tonal"
+        (click)="adicionar()"
       >
+        CADASTRAR
+      </button>
+      } @if(registro){
+      <button class="w-100" matButton="tonal" (click)="registro = !registro">
         CANCELAR
       </button>
       }
@@ -70,7 +71,11 @@
   </mat-card>
   <mat-card class="mt-3">
     <mat-card-content class="text-center">
-      <mat-icon color="primary" style="font-size: 40px; height: 40px; width: 40px;">info</mat-icon>
+      <mat-icon
+        color="primary"
+        style="font-size: 40px; height: 40px; width: 40px"
+        >info</mat-icon
+      >
       <p class="mt-2 mb-0">
         Esta aplicação permite criar e gerenciar
         <strong>listas de propósito geral</strong> como listas de desejos,

@@ -9,7 +9,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Cabecalho } from '../../components/cabecalho/cabecalho';
 import { FirebaseService } from '../../services/firebase-service';
 import { Item } from '../../shared/models/interfaces/item';
-import { ListaFire } from '../../shared/models/interfaces/ListaFire';
+import { Lista } from '../../shared/models/interfaces/Lista';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
@@ -32,7 +32,7 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './lista.css',
   encapsulation: ViewEncapsulation.None
 })
-export class Lista {
+export class ListaComponent {
   @Output() pageChange = new EventEmitter();
   novo = '';
   colunas: string[] = ['checked', 'nome', 'delete'];
@@ -52,7 +52,7 @@ export class Lista {
     this.dataSource.sort = this.sort;
   }
   async atualizarLista() {
-    await this.firebase.atualizar<ListaFire>(
+    await this.firebase.atualizar<Lista>(
       this.firebase.usuarioAtual.data.nome,
       this.lista.id,
       this.lista.data
