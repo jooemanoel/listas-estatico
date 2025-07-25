@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Cabecalho } from '../../components/cabecalho/cabecalho';
-import { Firebase } from '../../services/firebase';
+import { FirebaseService } from '../../services/firebase-service';
 import { Item } from '../../shared/models/interfaces/item';
 import { ListaFire } from '../../shared/models/interfaces/ListaFire';
 import { MatButtonModule } from '@angular/material/button';
@@ -37,7 +37,7 @@ export class Lista {
   colunas: string[] = ['checked', 'nome', 'delete'];
   dataSource = new MatTableDataSource<Item>([]);
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private firebase: Firebase) {}
+  constructor(private firebase: FirebaseService) {}
   get lista() {
     return this.firebase.listaAtual;
   }

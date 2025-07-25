@@ -1,4 +1,4 @@
-//firebase.ts
+//firebase-service.ts
 
 import { Injectable } from '@angular/core';
 
@@ -32,7 +32,7 @@ const db = getFirestore(app);
 @Injectable({
   providedIn: 'root',
 })
-export class Firebase {
+export class FirebaseService {
   usuarios: Registro<Usuario>[] = [];
   usuarioAtual!: Registro<Usuario>;
   listaAtual!: Registro<ListaFire>;

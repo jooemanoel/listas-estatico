@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ListaFire } from '../../shared/models/interfaces/ListaFire';
-import { Firebase } from '../../services/firebase';
+import { FirebaseService } from '../../services/firebase-service';
 import { Cabecalho } from '../../components/cabecalho/cabecalho';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class Formulario {
 @Output() pageChange = new EventEmitter();
   value = '';
-  constructor(private firebase: Firebase) {}
+  constructor(private firebase: FirebaseService) {}
   async adicionar() {
     if (!this.value || !this.value.trim()) return;
     const lista: ListaFire = { nome: this.value.toUpperCase(), itens: [] };

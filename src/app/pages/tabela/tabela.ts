@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Cabecalho } from '../../components/cabecalho/cabecalho';
-import { Firebase } from '../../services/firebase';
+import { FirebaseService } from '../../services/firebase-service';
 import { ListaFire } from '../../shared/models/interfaces/ListaFire';
 import { Registro } from '../../shared/models/interfaces/registro';
 import { Usuario } from '../../shared/models/interfaces/usuario';
@@ -31,7 +31,7 @@ export class Tabela {
   colunas: string[] = ['ver', 'nome', 'excluir'];
   dataSource = new MatTableDataSource<Registro<ListaFire>>([]);
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private firebase: Firebase) {}
+  constructor(private firebase: FirebaseService) {}
   ngOnInit() {
     this.usuario = this.firebase.usuarioAtual;
     this.carregarListas();

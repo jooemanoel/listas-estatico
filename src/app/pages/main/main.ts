@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Firebase } from '../../services/firebase';
+import { FirebaseService } from '../../services/firebase-service';
 import { PushService } from '../../services/push-service';
 import { Registro } from '../../shared/models/interfaces/registro';
 import { Usuario } from '../../shared/models/interfaces/usuario';
@@ -21,7 +21,7 @@ export class Main {
     this.page = x;
     if (x === 4) localStorage.removeItem('usuarioAtual');
   }
-  constructor(private firebase: Firebase, private pushService: PushService) {}
+  constructor(private firebase: FirebaseService, private pushService: PushService) {}
   ngOnInit(): void {
     const str = localStorage.getItem('usuarioAtual');
     if (!str) return;

@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Cabecalho } from '../../components/cabecalho/cabecalho';
-import { Firebase } from '../../services/firebase';
+import { FirebaseService } from '../../services/firebase-service';
 import { Registro } from '../../shared/models/interfaces/registro';
 import { Usuario } from '../../shared/models/interfaces/usuario';
 
@@ -36,7 +36,7 @@ export class Login {
   registro = false;
   colunas: string[] = ['edit', 'nome', 'delete'];
   dataSource = new MatTableDataSource<Registro<Usuario>>([]);
-  constructor(private firebase: Firebase, private _snackBar: MatSnackBar) {}
+  constructor(private firebase: FirebaseService, private _snackBar: MatSnackBar) {}
   ngOnInit(): void {
     this.carregarUsuarios();
   }
