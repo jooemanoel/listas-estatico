@@ -1,9 +1,11 @@
 // src/custom-sw.js
 
 self.addEventListener('push', function (event) {
-  console.log('Push recebido:', event); // <-- ADICIONE ISSO
+  console.log('Push recebido:', event);
 
   const data = event.data?.json() || {};
+  console.log('Dados do push:', data);
+
   const title = data.title || 'Notificação';
   const options = {
     body: data.body || 'Você tem uma nova notificação.',

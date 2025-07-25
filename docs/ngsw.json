@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1753408988448,
+  "timestamp": 1753411598098,
   "index": "/listas-estatico/index.html",
   "assetGroups": [
     {
@@ -14,11 +14,11 @@
         "/listas-estatico/custom-sw.js",
         "/listas-estatico/favicon.ico",
         "/listas-estatico/index.html",
-        "/listas-estatico/main-5ONYGPXJ.js",
+        "/listas-estatico/main-WXWFAICU.js",
         "/listas-estatico/manifest.webmanifest",
         "/listas-estatico/polyfills-B6TNHZQ6.js",
         "/listas-estatico/scripts-WL2QHKC5.js",
-        "/listas-estatico/styles-NUZNKBHZ.css"
+        "/listas-estatico/styles-ELL4KLE4.css"
       ],
       "patterns": []
     },
@@ -44,7 +44,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/listas-estatico/custom-sw.js": "4df501434c4af3063f740d58d95e0c8830bc8616",
+    "/listas-estatico/custom-sw.js": "c75c2dbc73eb736440a90c6d7f153e1fe2dc4600",
     "/listas-estatico/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
     "/listas-estatico/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
     "/listas-estatico/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
@@ -54,12 +54,12 @@
     "/listas-estatico/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "/listas-estatico/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "/listas-estatico/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/listas-estatico/index.html": "8b807d1ed997afd531c095f0e3b3a91ddb928690",
-    "/listas-estatico/main-5ONYGPXJ.js": "deee0018311f95d0753691aa68b438da57829d33",
+    "/listas-estatico/index.html": "ae2089f9d56d5023c7f31d5139df1bcd9427a381",
+    "/listas-estatico/main-WXWFAICU.js": "9c9d95048e7f9b97ea52c7838f322c3b9647ca64",
     "/listas-estatico/manifest.webmanifest": "909ff986a219329f7b8b66926a7ba3d5b1762a08",
     "/listas-estatico/polyfills-B6TNHZQ6.js": "bf76ac291d7f51c1139b7edcf86b359a30c08c64",
     "/listas-estatico/scripts-WL2QHKC5.js": "c1b0b7dbf9c9fb61cc4dc027d25f48b5a7b113ad",
-    "/listas-estatico/styles-NUZNKBHZ.css": "b85dde670e5e904f50cf38efe0ca610aa782cd27"
+    "/listas-estatico/styles-ELL4KLE4.css": "e8e00392829dc30a713ffdbf3abdbe2485c1f274"
   },
   "navigationUrls": [
     {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,6 +30,7 @@ import { MatCardModule } from '@angular/material/card';
   ],
   templateUrl: './lista.html',
   styleUrl: './lista.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class Lista {
   @Output() pageChange = new EventEmitter();

@@ -3,7 +3,7 @@
   (btnClick)="criarLista()"
   (menuClick)="pageChange.emit(4)"
 ></app-cabecalho>
-<div class="container pt-3">
+<div class="container p-0 p-lg-3">
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container [matColumnDef]="colunas[0]">
       <th mat-header-cell *matHeaderCellDef style="width: 40px"></th>
