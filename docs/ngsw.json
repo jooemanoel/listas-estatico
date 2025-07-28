@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1753673586466,
+  "timestamp": 1753726163286,
   "index": "/listas-estatico/index.html",
   "assetGroups": [
     {
@@ -13,10 +13,10 @@
       "urls": [
         "/listas-estatico/favicon.ico",
         "/listas-estatico/index.html",
-        "/listas-estatico/main-7DEQFAD4.js",
+        "/listas-estatico/main-XLE6UFYD.js",
         "/listas-estatico/manifest.webmanifest",
         "/listas-estatico/polyfills-B6TNHZQ6.js",
-        "/listas-estatico/styles-ELL4KLE4.css"
+        "/listas-estatico/styles-TNAEU3Y5.css"
       ],
       "patterns": []
     },
@@ -42,20 +42,20 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/listas-estatico/favicon.ico": "7d5f2811aacc1f0a07ac76820f2c862fba2d92e1",
-    "/listas-estatico/icons/icon-128x128.png": "966128f6126b943fb78833ffa13f21f37e2c9afd",
-    "/listas-estatico/icons/icon-144x144.png": "8018839b52118e098f56b69ca81cfd5b221efd15",
-    "/listas-estatico/icons/icon-152x152.png": "7f3a258ece9ddafe8250859419358dc5637c3730",
-    "/listas-estatico/icons/icon-192x192.png": "d33f7fcf7ea270b31d9226d7e88148493965e4a7",
-    "/listas-estatico/icons/icon-384x384.png": "6216911956d2f1b82177b37478186e4982c2df30",
-    "/listas-estatico/icons/icon-512x512.png": "c7d25b8c97a8a133fca1ffe2cd24cae7ce232423",
-    "/listas-estatico/icons/icon-72x72.png": "36d7fd967cf5d3e0c14c6cc992028e3a4f48e83b",
-    "/listas-estatico/icons/icon-96x96.png": "e68bfd43c4996d3a8f14c7fca680cdc69eb8f54b",
-    "/listas-estatico/index.html": "9ca9c0b227fec7110c7aa531a9fdcbe394c9a9af",
-    "/listas-estatico/main-7DEQFAD4.js": "d82b2254152df90084136e662b37f9776cde9566",
+    "/listas-estatico/favicon.ico": "6bcb9c4869d8fd0b7b41b7de68c9e187638b69b3",
+    "/listas-estatico/icons/icon-128x128.png": "21216adec17f15e193ed0179016e45205903d1b1",
+    "/listas-estatico/icons/icon-144x144.png": "ac226d4734b7f7ba9f48d13f876d4c5041f55789",
+    "/listas-estatico/icons/icon-152x152.png": "537dfe8060346cb0c8aa1c60523faf1c21a17376",
+    "/listas-estatico/icons/icon-192x192.png": "3cfc2454dd2ac9370cf9b9872cc544784293c0c6",
+    "/listas-estatico/icons/icon-384x384.png": "3029bed81dda936b705ff6138e5f30e594ee706a",
+    "/listas-estatico/icons/icon-512x512.png": "728031cb7d6d9af53ea4be711c39dd212117f963",
+    "/listas-estatico/icons/icon-72x72.png": "f4951aa296cf90e7cd04546cacd8bc2a12425808",
+    "/listas-estatico/icons/icon-96x96.png": "c84f3420ab55537325c3ce70850ec67225964367",
+    "/listas-estatico/index.html": "8a40cb7cade58f9f570dcb64f04f31dde687dfbc",
+    "/listas-estatico/main-XLE6UFYD.js": "e84784e6870096b021d0b54c1bda230c1ab98442",
     "/listas-estatico/manifest.webmanifest": "909ff986a219329f7b8b66926a7ba3d5b1762a08",
     "/listas-estatico/polyfills-B6TNHZQ6.js": "bf76ac291d7f51c1139b7edcf86b359a30c08c64",
-    "/listas-estatico/styles-ELL4KLE4.css": "e8e00392829dc30a713ffdbf3abdbe2485c1f274"
+    "/listas-estatico/styles-TNAEU3Y5.css": "cde4eed85093a07917cf55fe261fbe7d42b24657"
   },
   "navigationUrls": [
     {

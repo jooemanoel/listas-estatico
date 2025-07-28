@@ -19,6 +19,6 @@ export class Cabecalho {
     return this.controleService.page;
   }
   toggleMenu() {
-    this.controleService.menu.set(!this.controleService.menu());
+    this.controleService.toggleMenu.next();
   }
 }

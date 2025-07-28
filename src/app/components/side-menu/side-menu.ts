@@ -14,7 +14,7 @@ import { ControleService } from '../../services/controle-service';
 export class SideMenu {
   constructor(private controleService: ControleService) {}
   close() {
-    this.controleService.menu.set(false);
+    this.controleService.closeMenu.next();
   }
   criarLista() {
     this.controleService.page.set('formulario');
