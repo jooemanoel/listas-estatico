@@ -1,9 +1,23 @@
 <app-cabecalho
   [titulo]="usuario.data.nome"
-  (btnClick)="criarLista()"
-  (menuClick)="pageChange.emit(4)"
 ></app-cabecalho>
-<div class="container p-0 p-lg-3">
+@if(carregando) {
+  <div class="container pt-3 d-flex justify-content-center">
+  <mat-card
+    class="w-100 text-center p-3"
+    style="max-width: 400px; margin: auto"
+  >
+    <mat-card-content>
+      <div class="d-flex flex-column align-items-center gap-3">
+        <mat-spinner diameter="40" color="primary"></mat-spinner>
+        <p class="mb-0">Carregando listas...</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+}
+@else {
+  <div class="container p-0 p-lg-3">
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container [matColumnDef]="colunas[0]">
       <th mat-header-cell *matHeaderCellDef style="width: 40px"></th>
@@ -58,4 +72,5 @@
     </mat-card-content>
   </mat-card>
 </div>
+}
 }

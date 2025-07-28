@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FirebaseService } from '../../services/firebase-service';
 import { Registro } from '../../shared/models/interfaces/registro';
 import { Usuario } from '../../shared/models/interfaces/usuario';
@@ -6,28 +6,30 @@ import { Formulario } from '../formulario/formulario';
 import { ListaComponent } from '../lista/lista';
 import { Login } from '../login/login';
 import { Tabela } from '../tabela/tabela';
+import { ControleService } from '../../services/controle-service';
 
 @Component({
   standalone: true,
-  selector: 'app-main',
+  selector: 'app-home',
   imports: [Tabela, ListaComponent, Formulario, Login],
-  templateUrl: './main.html',
-  styleUrl: './main.css',
+  templateUrl: './home.html',
+  styleUrl: './home.css',
 })
-export class Main {
-  page = 4;
-  mudarPagina(x: number) {
-    this.page = x;
-    if (x === 4) localStorage.removeItem('usuarioAtual');
+export class Home {
+  constructor(
+    private firebaseService: FirebaseService,
+    private controleService: ControleService
+  ) {}
+  get page(){
+    return this.controleService.page;
   }
-  constructor(private firebase: FirebaseService) {}
   ngOnInit(): void {
     const str = localStorage.getItem('usuarioAtual');
     if (!str) return;
     const usuarioAtual: Registro<Usuario> = JSON.parse(
       str
     ) as Registro<Usuario>;
-    this.firebase.usuarioAtual = usuarioAtual;
-    this.page = 1;
+    this.firebaseService.usuarioAtual = usuarioAtual;
+    this.controleService.page.set('tabela');
   }
 }

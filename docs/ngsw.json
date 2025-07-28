@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1753595913627,
+  "timestamp": 1753673586466,
   "index": "/listas-estatico/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/listas-estatico/favicon.ico",
         "/listas-estatico/index.html",
-        "/listas-estatico/main-UDWJ3Z4T.js",
+        "/listas-estatico/main-7DEQFAD4.js",
         "/listas-estatico/manifest.webmanifest",
         "/listas-estatico/polyfills-B6TNHZQ6.js",
         "/listas-estatico/styles-ELL4KLE4.css"
@@ -42,17 +42,17 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/listas-estatico/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/listas-estatico/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
-    "/listas-estatico/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
-    "/listas-estatico/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
-    "/listas-estatico/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
-    "/listas-estatico/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
-    "/listas-estatico/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
-    "/listas-estatico/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
-    "/listas-estatico/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/listas-estatico/index.html": "7db09fe96d609e1cb2f9529ef3137c87e8d148ec",
-    "/listas-estatico/main-UDWJ3Z4T.js": "a6db4a977c222942e00d07b67f1345a8085e2159",
+    "/listas-estatico/favicon.ico": "7d5f2811aacc1f0a07ac76820f2c862fba2d92e1",
+    "/listas-estatico/icons/icon-128x128.png": "966128f6126b943fb78833ffa13f21f37e2c9afd",
+    "/listas-estatico/icons/icon-144x144.png": "8018839b52118e098f56b69ca81cfd5b221efd15",
+    "/listas-estatico/icons/icon-152x152.png": "7f3a258ece9ddafe8250859419358dc5637c3730",
+    "/listas-estatico/icons/icon-192x192.png": "d33f7fcf7ea270b31d9226d7e88148493965e4a7",
+    "/listas-estatico/icons/icon-384x384.png": "6216911956d2f1b82177b37478186e4982c2df30",
+    "/listas-estatico/icons/icon-512x512.png": "c7d25b8c97a8a133fca1ffe2cd24cae7ce232423",
+    "/listas-estatico/icons/icon-72x72.png": "36d7fd967cf5d3e0c14c6cc992028e3a4f48e83b",
+    "/listas-estatico/icons/icon-96x96.png": "e68bfd43c4996d3a8f14c7fca680cdc69eb8f54b",
+    "/listas-estatico/index.html": "9ca9c0b227fec7110c7aa531a9fdcbe394c9a9af",
+    "/listas-estatico/main-7DEQFAD4.js": "d82b2254152df90084136e662b37f9776cde9566",
     "/listas-estatico/manifest.webmanifest": "909ff986a219329f7b8b66926a7ba3d5b1762a08",
     "/listas-estatico/polyfills-B6TNHZQ6.js": "bf76ac291d7f51c1139b7edcf86b359a30c08c64",
     "/listas-estatico/styles-ELL4KLE4.css": "e8e00392829dc30a713ffdbf3abdbe2485c1f274"

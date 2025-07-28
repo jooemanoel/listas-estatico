@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { Component, Input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { FirebaseService } from '../../services/firebase-service';
+import { ControleService } from '../../services/controle-service';
 
 @Component({
   standalone: true,
@@ -14,19 +14,11 @@ import { FirebaseService } from '../../services/firebase-service';
 })
 export class Cabecalho {
   @Input() titulo = 'Lista de Compras';
-  @Output() btnClick = new EventEmitter();
-  @Output() menuClick = new EventEmitter();
-  constructor(private firebase: FirebaseService) {}
-  get atual() {
-    return this.firebase.listaAtual.data.nome;
+  constructor(private controleService: ControleService) {}
+  get page() {
+    return this.controleService.page;
   }
-  get usuarioAtual() {
-    return this.firebase.usuarioAtual;
-  }
-  evento() {
-    this.btnClick.emit();
-  }
-  menu() {
-    this.menuClick.emit();
+  toggleMenu() {
+    this.controleService.menu.set(!this.controleService.menu());
   }
 }

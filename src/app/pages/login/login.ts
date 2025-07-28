@@ -11,6 +11,7 @@ import { Cabecalho } from '../../components/cabecalho/cabecalho';
 import { FirebaseService } from '../../services/firebase-service';
 import { Registro } from '../../shared/models/interfaces/registro';
 import { Usuario } from '../../shared/models/interfaces/usuario';
+import { ControleService } from '../../services/controle-service';
 
 @Component({
   standalone: true,
@@ -30,14 +31,12 @@ import { Usuario } from '../../shared/models/interfaces/usuario';
 export class Login {
   colecao = 'usuarios';
   hide = true;
-  @Output() pageChange = new EventEmitter();
   usuario: Usuario = { nome: '', senha: '' };
   senha2 = '';
   registro = false;
-  colunas: string[] = ['edit', 'nome', 'delete'];
-  dataSource = new MatTableDataSource<Registro<Usuario>>([]);
   constructor(
     private firebase: FirebaseService,
+    private controleService: ControleService,
     private _snackBar: MatSnackBar
   ) {}
   ngOnInit(): void {
@@ -58,11 +57,8 @@ export class Login {
     } else {
       this.firebase.usuarioAtual = user;
       localStorage.setItem('usuarioAtual', JSON.stringify(user));
-      this.pageChange.emit(1);
+      this.controleService.page.set('tabela');
     }
-  }
-  homeClick() {
-    this.pageChange.emit(1);
   }
   async adicionar() {
     if (!this.registro) {
@@ -75,7 +71,12 @@ export class Login {
       });
       return;
     }
-    this.usuario.nome = this.usuario.nome.toUpperCase();
+    this.usuario.nome = this.usuario.nome
+      .trim()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toUpperCase()
+      .replace(/[^A-Z ]/g, '');
     if (this.firebase.usuarios.find((x) => x.data.nome === this.usuario.nome)) {
       this._snackBar.open('Este usuário já existe.', '', {
         duration: 5000,
@@ -105,10 +106,9 @@ export class Login {
       this.colecao
     );
     this.firebase.usuarios = usuarios;
-    this.dataSource.data = usuarios;
   }
   acessar(element: Registro<Usuario>) {
     this.firebase.usuarioAtual = element;
-    this.pageChange.emit(1);
+    this.controleService.page.set('tabela');
   }
 }

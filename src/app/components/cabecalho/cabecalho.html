@@ -1,25 +1,18 @@
-<mat-toolbar class="px-2">
-  <div class="flex-fill d-flex align-items-center">
-    <div>
-      @if(titulo !== 'Login' && titulo !== 'Cadastro') {
-      <button matMiniFab (click)="evento()">
-        @if(titulo === usuarioAtual.data.nome) {
-        <mat-icon>add</mat-icon>
-        } @else {
-        <mat-icon>home</mat-icon>
-        }
-      </button>
-      }
-    </div>
-    <div class="flex-fill text-center">
-      {{ titulo }}
-    </div>
-    <div>
-      @if(titulo !== 'Login' && titulo !== 'Cadastro') {
-      <button matMiniFab (click)="menu()">
-        <mat-icon>logout</mat-icon>
-      </button>
-      }
-    </div>
-  </div>
+<mat-toolbar class="px-2" color="primary">
+  @if(page() === 'login' || page() === 'cadastro') {
+  <button matMiniFab style="visibility: hidden">
+    <mat-icon>menu</mat-icon>
+  </button>
+  }
+  @else {
+    <button matMiniFab (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  }
+  <span class="flex-fill text-center">
+    {{ titulo.toUpperCase() }}
+  </span>
+  <button matMiniFab style="visibility: hidden">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>

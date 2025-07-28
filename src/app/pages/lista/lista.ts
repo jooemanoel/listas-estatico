@@ -33,7 +33,6 @@ import { MatCardModule } from '@angular/material/card';
   encapsulation: ViewEncapsulation.None
 })
 export class ListaComponent {
-  @Output() pageChange = new EventEmitter();
   novo = '';
   colunas: string[] = ['checked', 'nome', 'delete'];
   dataSource = new MatTableDataSource<Item>([]);
@@ -79,8 +78,5 @@ export class ListaComponent {
     item.checked = checked;
     await this.atualizarLista();
     this.carregarLista();
-  }
-  homeClick() {
-    this.pageChange.emit(1);
   }
 }

@@ -7,6 +7,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { ControleService } from '../../services/controle-service';
 
 @Component({
   standalone: true,
@@ -16,9 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './formulario.css'
 })
 export class Formulario {
-@Output() pageChange = new EventEmitter();
   value = '';
-  constructor(private firebase: FirebaseService) {}
+  constructor(private firebase: FirebaseService, private controleService: ControleService) {}
   async adicionar() {
     this.value = this.value.trim().toUpperCase();
     if (!this.value) return;
@@ -27,9 +27,9 @@ export class Formulario {
       this.firebase.usuarioAtual.data.nome,
       lista,
     );
-    this.pageChange.emit(1);
+    this.controleService.changePage('tabela');
   }
   homeClick() {
-    this.pageChange.emit(1);
+    this.controleService.changePage('tabela');
   }
 }

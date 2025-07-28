@@ -1,3 +1,8 @@
-<div class="container-fluid p-0">
-  <app-main></app-main>
-</div>
+<mat-sidenav-container style="height: 100vh">
+  <mat-sidenav #drawer mode="over" position="start">
+    <app-side-menu></app-side-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-home></app-home>
+  </mat-sidenav-content>
+</mat-sidenav-container>
