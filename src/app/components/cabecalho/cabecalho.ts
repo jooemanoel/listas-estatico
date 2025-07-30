@@ -21,4 +21,10 @@ export class Cabecalho {
   toggleMenu() {
     this.controleService.toggleMenu.next();
   }
+  novaLista(){
+    this.controleService.page.set('formulario');
+  }
+  voltar(){
+    this.controleService.page.set('tabela');
+  }
 }
