@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1753915679215,
+  "timestamp": 1753926295813,
   "index": "/listas-estatico/index.html",
   "assetGroups": [
     {
@@ -42,15 +42,15 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/listas-estatico/favicon.ico": "f90c5bf6b0c3c4aedf68993e7deaf21cf5389575",
-    "/listas-estatico/icons/icon-128x128.png": "9c5741566558b53f9ed1879443a953aa993a3ccd",
-    "/listas-estatico/icons/icon-144x144.png": "78165b83e467161ee204d3b0e15d533229a0ab64",
-    "/listas-estatico/icons/icon-152x152.png": "a6ffc1e1e6b827210eaf79f3c2f1a436bc79a1e8",
-    "/listas-estatico/icons/icon-192x192.png": "4424f914988b4e600ce5dbcc8b5a865138235cdd",
-    "/listas-estatico/icons/icon-384x384.png": "4b222e37debb2eb0bdfbfaa9023e4f5a2f77435c",
-    "/listas-estatico/icons/icon-512x512.png": "4f9887234499edc1eb1c03654766e8c16e7aa7eb",
-    "/listas-estatico/icons/icon-72x72.png": "0633b22d7f9ecbe6938264844b7b9e5e02cf278f",
-    "/listas-estatico/icons/icon-96x96.png": "dbf20c1f38a51cbb27ab3b4d7f8c0b9b2cb79e05",
+    "/listas-estatico/favicon.ico": "54163cb2e0d6813fb85334e48e28b80413b9b3b2",
+    "/listas-estatico/icons/icon-128x128.png": "2328069df0876d7d496d59d57f7e525e117a575b",
+    "/listas-estatico/icons/icon-144x144.png": "89c2238b325fc8c9e1755164b6a60c0a1a191fa2",
+    "/listas-estatico/icons/icon-152x152.png": "1b88968f8a28a88ccfd0d88c644bbaf8659985b9",
+    "/listas-estatico/icons/icon-192x192.png": "478793f007c0d994f137bfe6a89d0ddc02c0b6e2",
+    "/listas-estatico/icons/icon-384x384.png": "e8a8a59e429e6d4de2dcdfddb515d41cd1292420",
+    "/listas-estatico/icons/icon-512x512.png": "a346994c66c775b776c5639ff4c55124b5d6b773",
+    "/listas-estatico/icons/icon-72x72.png": "577eee060222a7b37039d283122d0b076d80ae7a",
+    "/listas-estatico/icons/icon-96x96.png": "c55f6940a8f6ae12b631bae5fa0faa15439efa7a",
     "/listas-estatico/index.html": "59420908b5c596dcdb741ddcd2d554e46587f336",
     "/listas-estatico/main-YGYARIG3.js": "e874d202710a5213fdb04d5ca09eded12ff5869e",
     "/listas-estatico/manifest.webmanifest": "909ff986a219329f7b8b66926a7ba3d5b1762a08",
