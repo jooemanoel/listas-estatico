@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ControleService } from '../../services/controle-service';
+import { FirebaseService } from '../../services/firebase-service';
 
 @Component({
   selector: 'app-side-menu',
@@ -12,7 +13,10 @@ import { ControleService } from '../../services/controle-service';
   styleUrl: './side-menu.css',
 })
 export class SideMenu {
-  constructor(private controleService: ControleService) {}
+  constructor(
+    private controleService: ControleService,
+    private firebaseService: FirebaseService
+  ) {}
   close() {
     this.controleService.closeMenu.next();
   }
@@ -24,7 +28,8 @@ export class SideMenu {
     this.controleService.page.set('tabela');
     this.close();
   }
-  logout(){
+  logout() {
+    this.firebaseService.listas.set([]);
     localStorage.removeItem('usuarioAtual');
     this.controleService.page.set('login');
     this.close();

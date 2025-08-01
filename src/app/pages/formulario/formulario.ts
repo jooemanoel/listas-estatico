@@ -27,6 +27,8 @@ export class Formulario {
       this.firebase.usuarioAtual.data.nome,
       lista,
     );
+    // Força o recarregamento das listas ao mudar de página
+    this.firebase.listas.set([]);
     this.controleService.changePage('tabela');
   }
   homeClick() {

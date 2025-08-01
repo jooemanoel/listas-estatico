@@ -1,6 +1,6 @@
 //firebase-service.ts
 
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 import { initializeApp } from 'firebase/app';
 import {
@@ -15,7 +15,7 @@ import {
 import { Lista } from '../shared/models/interfaces/Lista';
 import { Registro } from '../shared/models/interfaces/registro';
 import { Usuario } from '../shared/models/interfaces/usuario';
-import { HttpClient } from '@angular/common/http';
+import { ControleService } from './controle-service';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB6D-EiO-Bi6wb7fePa-FLnIE3NqY62BjM',
@@ -35,11 +35,14 @@ const db = getFirestore(app);
 export class FirebaseService {
   usuarios: Registro<Usuario>[] = [];
   usuarioAtual!: Registro<Usuario>;
+  listas = signal<Registro<Lista>[]>([]);
   listaAtual!: Registro<Lista>;
-  constructor(private http: HttpClient) {}
+  constructor(private controleService: ControleService){}
   async listar<T>(colecao: string): Promise<Registro<T>[]> {
+    this.controleService.carregando.set(true);
     const colecaoRef = collection(db, colecao);
     const snapshot = await getDocs(colecaoRef);
+    this.controleService.carregando.set(false);
     return snapshot.docs.map((doc) => ({
       id: doc.id,
       data: doc.data() as T,
@@ -49,9 +52,11 @@ export class FirebaseService {
     colecao: string,
     dado: T
   ): Promise<string> {
+    this.controleService.carregando.set(true);
     try {
       const docRef = await addDoc(collection(db, colecao), dado);
       console.log('Documento adicionado com ID:', docRef.id);
+      this.controleService.carregando.set(false);
       return docRef.id;
     } catch (error) {
       console.error('Erro ao adicionar documento:', error);
@@ -59,8 +64,10 @@ export class FirebaseService {
     }
   }
   async excluir(colecao: string, id: string): Promise<void> {
+    this.controleService.carregando.set(true);
     try {
       await deleteDoc(doc(db, colecao, id));
+      this.controleService.carregando.set(false);
       console.log(
         `Documento com ID ${id} excluído com sucesso da coleção ${colecao}.`
       );
@@ -69,7 +76,6 @@ export class FirebaseService {
         `Erro ao excluir documento ${id} da coleção ${colecao}:`,
         error
       );
-      throw error;
     }
   }
   async atualizar<T>(
@@ -77,9 +83,11 @@ export class FirebaseService {
     id: string,
     novosDados: Partial<T>
   ): Promise<void> {
+    this.controleService.carregando.set(true);
     try {
       const usuarioRef = doc(db, colecao, id);
       await updateDoc(usuarioRef, novosDados);
+      this.controleService.carregando.set(false);
       console.log(`Usuário com ID ${id} atualizado com sucesso.`);
     } catch (error) {
       console.error('Erro ao atualizar usuário:', error);

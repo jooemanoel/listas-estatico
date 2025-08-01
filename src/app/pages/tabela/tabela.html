@@ -1,7 +1,7 @@
 <app-cabecalho
   [titulo]="usuario.data.nome"
 ></app-cabecalho>
-@if(carregando) {
+@if(carregando()) {
   <div class="container pt-3 d-flex justify-content-center">
   <mat-card
     class="w-100 text-center p-3"
@@ -22,7 +22,7 @@
     <ng-container [matColumnDef]="colunas[0]">
       <th mat-header-cell *matHeaderCellDef style="width: 40px"></th>
       <td mat-cell *matCellDef="let element">
-        <button mat-icon-button (click)="acessar(element)">
+        <button mat-icon-button (click)="acessarLista(element)">
           <mat-icon>remove_red_eye</mat-icon>
         </button>
       </td>
@@ -35,7 +35,7 @@
       </th>
       <td mat-cell *matCellDef="let element">
         <div class="w-100 text-center">
-          <button matButton class="w-100" (click)="acessar(element)">
+          <button matButton class="w-100" (click)="acessarLista(element)">
             {{ element.data.nome }}
           </button>
         </div>
@@ -44,7 +44,7 @@
     <ng-container [matColumnDef]="colunas[2]">
       <th mat-header-cell *matHeaderCellDef style="width: 40px"></th>
       <td mat-cell *matCellDef="let element">
-        <button mat-icon-button (click)="excluir(element.id)">
+        <button mat-icon-button (click)="excluirLista(element.id)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>

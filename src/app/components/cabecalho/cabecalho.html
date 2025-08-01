@@ -8,21 +8,16 @@
     <mat-icon>menu</mat-icon>
   </button>
   }
+
   <span class="flex-fill text-center">
     {{ titulo.toUpperCase() }}
   </span>
 
-  @if(page() === 'login' || page() === 'cadastro') {
-  <button matMiniFab style="visibility: hidden">
+  @if(carregando() && page() !== 'tabela') {
+    <mat-spinner diameter="40" color="primary"></mat-spinner>
+  } @else {
+<button matMiniFab style="visibility: hidden">
     <mat-icon>logout</mat-icon>
   </button>
-  } @else { @if(page() === 'tabela') {
-  <button matMiniFab (click)="novaLista()">
-    <mat-icon>add</mat-icon>
-  </button>
-  } @else {
-  <button matMiniFab (click)="voltar()">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-  } }
+  }
 </mat-toolbar>

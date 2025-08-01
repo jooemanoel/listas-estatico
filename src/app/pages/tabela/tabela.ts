@@ -10,7 +10,6 @@ import { ControleService } from '../../services/controle-service';
 import { FirebaseService } from '../../services/firebase-service';
 import { Lista } from '../../shared/models/interfaces/Lista';
 import { Registro } from '../../shared/models/interfaces/registro';
-import { Usuario } from '../../shared/models/interfaces/usuario';
 
 @Component({
   standalone: true,
@@ -28,9 +27,7 @@ import { Usuario } from '../../shared/models/interfaces/usuario';
   styleUrl: './tabela.css',
 })
 export class Tabela {
-  carregando = true;
   titulo = '';
-  usuario!: Registro<Usuario>;
   colunas: string[] = ['ver', 'nome', 'excluir'];
   dataSource = new MatTableDataSource<Registro<Lista>>([]);
   @ViewChild(MatSort) sort!: MatSort;
@@ -38,19 +35,26 @@ export class Tabela {
     private firebase: FirebaseService,
     private controleService: ControleService
   ) {}
+  get carregando() {
+    return this.controleService.carregando;
+  }
+  get usuario() {
+    return this.firebase.usuarioAtual;
+  }
   ngOnInit() {
-    this.usuario = this.firebase.usuarioAtual;
     this.carregarListas();
   }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
   async carregarListas() {
-    const listas: Registro<Lista>[] = await this.firebase.listar<Lista>(
-      this.usuario.data.nome
-    );
-    this.dataSource.data = listas;
-    this.carregando = false;
+    if (!this.firebase.listas().length) {
+      const listas: Registro<Lista>[] = await this.firebase.listar<Lista>(
+        this.usuario.data.nome
+      );
+      this.firebase.listas.set(listas);
+    }
+    this.dataSource.data = this.firebase.listas();
     this.titulo = this.dataSource.data.length
       ? 'MINHAS LISTAS'
       : 'NÃO HÁ NENHUMA LISTA';
@@ -58,12 +62,14 @@ export class Tabela {
   criarLista() {
     this.controleService.changePage('formulario');
   }
-  acessar(element: Registro<Lista>) {
+  acessarLista(element: Registro<Lista>) {
     this.firebase.listaAtual = element;
     this.controleService.changePage('lista');
   }
-  async excluir(id: string) {
+  async excluirLista(id: string) {
     await this.firebase.excluir(this.usuario.data.nome, id);
+    // Força o recarregamento das listas
+    this.firebase.listas.set([]);
     this.carregarListas();
   }
 }

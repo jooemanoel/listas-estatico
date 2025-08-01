@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ControleService {
+  carregando = signal(false);
   page = signal('login');
   closeMenu = new Subject<void>();
   toggleMenu = new Subject<void>();
